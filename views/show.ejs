@@ -1,0 +1,15 @@
+<%- include ("./partials/head.ejs") %>
+
+<div>
+  <img src="<%= theKulich.imageURL %>" />
+  <div>
+    <h2><%= theKulich.name %></h2>
+  </div>
+
+  <div>
+    <form action="<%= baseUrl %>/<%= theKulich.id %>?_method=DELETE" method="post">
+      <input type="submit" value="Delete" />
+    </form>
+  </div>
+</div>
+<%- include ("./partials/footer.ejs") %>

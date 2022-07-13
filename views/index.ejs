@@ -1,0 +1,18 @@
+<%- include('partials/head.ejs') %>
+
+<ul class="kulichi-list">
+  <% for (let kulich of allKulichi) { %>
+    <li>
+
+      <a class="kulich-info" href="<%= baseUrl %>/<%= kulich.id %>">
+        <img src="<%= kulich.imageURL %>" />
+        <div>
+          <h3>"something"</h3>
+          <h3><%= kulich.name %></h3>
+        </div>
+      </a>
+    </li>
+  <% } %>
+</ul>
+
+<%- include('./partials/footer.ejs') %>
