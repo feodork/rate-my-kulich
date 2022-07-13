@@ -1,6 +1,7 @@
 const express = require("express")
 const bcrypt = require("bcrypt")
 
+const upload = require("../middlewares/uploads")
 const User = require("../models/users")
 
 const userRouter = express.Router()
@@ -14,7 +15,7 @@ userRouter.get("/signup", (req, res) => {
   })
 })
 
-userRouter.post("/", (req, res) => {
+userRouter.post("/", upload.single("image"), (req, res) => {
   //overwrite the user password with the hashed password, then pass that in to our database
   req.body.password = bcrypt.hashSync(
     req.body.password,
@@ -29,7 +30,7 @@ userRouter.post("/", (req, res) => {
     .catch((err) => {
       req.flash("info", "Username already exists")
       res.redirect(req.baseUrl + "/signup")
-      console.log("error")
+      console.log(err)
     })
 })
 

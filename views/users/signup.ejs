@@ -1,7 +1,7 @@
 <%- include("../partials/head.ejs") %>
 
 <div>
-  <h1>Sign up</h1>
+  <h2>Sign up to post your kulich and rate.</h2>
 
   <div class="flash-messages">
     <% if (messages.success) { %>
@@ -21,14 +21,20 @@
     <% } %>
   </div>
 
-  <form action="<%= baseUrl %>" method="post">
-    <label for="name">Name</label>
-    <input type="text" name="name" id="name" required />
+  <form action="<%= baseUrl %>" method="post" enctype="multipart/form-data">
+    <label for="username">Name</label>
+    <input type="text" name="username" id="username" required />
     <label for="email">Email</label>
     <input type="text" name="email" id="email" required />
     <label for="password">Password</label>
+      <label for="profilePic">Profile pic</label>
+    <input type="file" name="profilePic" id="profilePic">
     <input type="password" name="password" id="password" required />
     <input type="submit" value="Sign up" />
+      <p>
+      Already have an account?
+      <a href="/login">Log in</a>
+    </p>
   </form>
 </div>
 <%- include("../partials/footer.ejs") %>

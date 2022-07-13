@@ -1,6 +1,7 @@
 const express = require("express")
 const router = express.Router()
 
+const upload = require("../middlewares/uploads")
 const Kulich = require("../models/kulichi")
 
 const isLoggedIn = (req, res, next) => {
@@ -18,6 +19,7 @@ router.get("/", (req, res) => {
     .exec()
     .then((kulichi) => {
       res.render("index.ejs", {
+        currentUser: req.session.currentUser,
         allKulichi: kulichi,
         baseUrl: req.baseUrl,
         tabTitle: "Home"
@@ -28,14 +30,15 @@ router.get("/", (req, res) => {
 // NEW route
 router.get("/new", (req, res) => {
   res.render("new.ejs", {
+    currentUser: req.session.currentUser,
     baseUrl: req.baseUrl,
     tabTitle: "Add New Kulich"
   })
 })
 
 // POST route
-router.post("/", (req, res) => {
-  req.body.imageURL = req.file.path
+router.post("/", upload.single("image"), (req, res) => {
+  req.body.image = req.file.path
   // CREATE route
   Kulich.create(req.body)
     .then((newKulich) => {
@@ -50,6 +53,7 @@ router.get("/:id", (req, res) => {
     .exec()
     .then((kulich) => {
       res.render("show.ejs", {
+        currentUser: req.session.currentUser,
         baseUrl: req.baseUrl,
         theKulich: kulich,
         tabTitle: kulich.name
@@ -77,11 +81,13 @@ router.put("/:id", (req, res) => {
 })
 
 // EDIT route
-router.get("/:id/edit", (req, res) => {
+router.get("/:id/edit", upload.single("image"), (req, res) => {
+  req.body.imageURL = req.file.path
   Kulich.findById(req.params.id)
     .exec()
     .then((kulich) => {
       res.render("edit.ejs", {
+        currentUser: req.session.currentUser,
         baseUrl: req.baseUrl,
         theKulich: kulich,
         tabTitle: "Update Kulikch: " + kulich.name

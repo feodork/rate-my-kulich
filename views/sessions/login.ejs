@@ -1,7 +1,7 @@
 <%- include("../partials/head.ejs") %>
 
 <div>
-  <h1>Log in to post your kulich and rate.</h1>
+  <h2>Log in to post your kulich and rate.</h2>
 
   <div>
     <% if (messages.success) { %>
@@ -23,8 +23,8 @@
 
   <form action="<%= baseUrl %>/login" method="post">
     <p>
-      <label for="name">Name</label>
-      <input type="text" name="name" id="name" required />
+      <label for="username">Name</label>
+      <input type="text" name="username" id="username" required />
     </p>
     <p>
       <label for="password">Password</label>

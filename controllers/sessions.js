@@ -21,8 +21,9 @@ sessionsRouter.post("/login", (req, res) => {
       if (!user) {
         // user not found
         // success, info, error
-        req.flash("error", "Username or password is incorrect")
-        return res.redirect(req.baseUrl + "/login")
+        console.log("working")
+        req.flash("Username or password is incorrect")
+        return res.redirect("/kulichi")
       }
       const passwordIsCorrect = bcrypt.compareSync(req.body.password, user.password)
       if (!passwordIsCorrect) {
