@@ -6,7 +6,7 @@ const mongoose = require("mongoose")
 const methodOverride = require("method-override")
 const session = require("express-session")
 const flash = require("express-flash")
-// const mongoDBSession = require("connect-mongodb-session")
+const mongoDBSession = require("connect-mongodb-session")
 
 
 // dependencies
@@ -34,6 +34,9 @@ app.use(session({
   }
 }))
 
+app.use(flash())
+app.use(express.urlencoded({ extended: false }))
+app.use(express.static('public'))
 app.use(methodOverride("_method"))
 
 app.use('/', sessionsController)
