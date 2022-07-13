@@ -1,0 +1,42 @@
+<%- include("../partials/head.ejs") %>
+
+<div>
+  <h1>Log in</h1>
+
+  <div>
+    <% if (messages.success) { %>
+      <% for (let msg of messages.success) { %>
+        <p><%= msg %></p>
+      <% } %>
+    <% } %>
+    <% if (messages.info) { %>
+      <% for (let msg of messages.info) { %>
+        <p><%= msg %></p>
+      <% } %>
+    <% } %>
+    <% if (messages.error) { %>
+      <% for (let msg of messages.error) { %>
+        <p><%= msg %></p>
+      <% } %>
+    <% } %>
+  </div>
+
+  <form action="<%= baseUrl %>/login" method="post">
+    <p>
+      <label for="name">Name</label>
+      <input type="text" name="name" id="name" required />
+    </p>
+    <p>
+      <label for="password">Password</label>
+      <input type="password" name="password" id="password" required />
+    </p>
+
+    <input class="button button-primary" type="submit" value="Log in" />
+
+    <p>
+      Don't have an account?
+      <a href="/users/signup">Sign up</a>
+    </p>
+  </form>
+</div>
+<%- include("../partials/footer.ejs") %>
