@@ -1,22 +1,22 @@
 <%- include("../partials/head.ejs") %>
 
 <div>
-  <h1>Log in</h1>
+  <h1>Log in to post your kulich and rate.</h1>
 
   <div>
     <% if (messages.success) { %>
       <% for (let msg of messages.success) { %>
-        <p><%= msg %></p>
+        <p>Success</p>
       <% } %>
     <% } %>
     <% if (messages.info) { %>
       <% for (let msg of messages.info) { %>
-        <p><%= msg %></p>
+        <p>Info</p>
       <% } %>
     <% } %>
     <% if (messages.error) { %>
       <% for (let msg of messages.error) { %>
-        <p><%= msg %></p>
+        <p>Error</p>
       <% } %>
     <% } %>
   </div>
@@ -31,7 +31,7 @@
       <input type="password" name="password" id="password" required />
     </p>
 
-    <input class="button button-primary" type="submit" value="Log in" />
+    <input type="submit" value="Log in" />
 
     <p>
       Don't have an account?
