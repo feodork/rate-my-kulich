@@ -16,6 +16,7 @@ router.use(isLoggedIn)
 // INDEX route
 router.get("/", (req, res) => {
   Kulich.find()
+    .populate("username")
     .exec()
     .then((kulichi) => {
       res.render("index.ejs", {
@@ -38,7 +39,9 @@ router.get("/new", (req, res) => {
 
 // POST route
 router.post("/", upload.single("image"), (req, res) => {
+  req.body.username = req.session.currentUser
   req.body.image = req.file.path
+
   // CREATE route
   Kulich.create(req.body)
     .then((newKulich) => {
@@ -50,8 +53,10 @@ router.post("/", upload.single("image"), (req, res) => {
 // SHOW route
 router.get("/:id", (req, res) => {
   Kulich.findById(req.params.id)
+    .populate("username")
     .exec()
     .then((kulich) => {
+      console.log(kulich)
       res.render("show.ejs", {
         currentUser: req.session.currentUser,
         baseUrl: req.baseUrl,
