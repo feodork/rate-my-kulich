@@ -58,6 +58,7 @@ router.get("/:id", (req, res) => {
     .exec()
     .then((kulich) => {
       console.log(kulich)
+      console.log(req.session.currentUser)
       res.render("show.ejs", {
         currentUser: req.session.currentUser,
         baseUrl: req.baseUrl,
@@ -88,7 +89,6 @@ router.put("/:id", (req, res) => {
 
 // EDIT route
 router.get("/:id/edit", upload.single("image"), (req, res) => {
-
   Kulich.findById(req.params.id)
     .exec()
     .then((kulich) => {
