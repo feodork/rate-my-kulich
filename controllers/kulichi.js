@@ -19,6 +19,7 @@ router.get("/", (req, res) => {
     .populate("username")
     .exec()
     .then((kulichi) => {
+      console.log(kulichi)
       res.render("index.ejs", {
         currentUser: req.session.currentUser,
         allKulichi: kulichi,

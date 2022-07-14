@@ -42,6 +42,9 @@ app.use(methodOverride("_method"))
 app.use('/', sessionsController)
 app.use('/users', usersController)
 app.use("/kulichi", kulichiController)
+app.use("/", (req, res) => {
+  res.redirect("/kulichi")
+})
 
 mongoose.connect(dbURL, () => {
   console.log("Connected to kulichi db")

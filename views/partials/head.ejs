@@ -41,7 +41,9 @@
 
           <li class="nav-item">
             <% if (currentUser) { %>
-              <a class= "nav-link" href="/logout">Log Out</a>
+              <form action="/logout?_method=DELETE" method="post">
+                <input class="nav-link" type="submit" value="Log Out" />
+              </form>
             <% } else { %>
               <a class= "nav-link" href="/login">Log In</a>
             <% } %>
@@ -49,5 +51,5 @@
         </ul>
       </div>
     </nav>
+  </div>
     </header>
-    <main>

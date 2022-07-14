@@ -1,9 +1,9 @@
 <%- include("partials/head.ejs") %>
 
-<div class="card" style="width: 18rem;">
+<div class="card revised-card" style="width: 18rem;">
   <ul>
   <% for (let kulich of allKulichi) { %>
-    <li class="list-group-item"><h3 class="card-title"><%= kulich.username %></h3>
+    <li class="list-group-item"><h3 class="card-title"><%= kulich.username.username %></h3>
         <a href="<%= baseUrl %>/<%= kulich.id %>">
         <img class="card-img-top" src="<%= kulich.image %>" /></a>
 
