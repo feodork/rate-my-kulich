@@ -1,10 +1,11 @@
 <%- include ("./partials/head.ejs") %>
 
 <div>
-  <img class="single-image" src="<%= theKulich.image %>" />
   <div>
     <h2><%= theKulich.username.username %></h2>
   </div>
+  <img class="single-image" src="<%= theKulich.image %>" />
+
 
   <div>
     <form action="<%= baseUrl %>/<%= theKulich.id %>?_method=DELETE" method="post">

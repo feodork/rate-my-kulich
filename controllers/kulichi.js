@@ -102,6 +102,30 @@ router.get("/:id/edit", upload.single("image"), (req, res) => {
 }) 
 
 // RATING route
+router.put("/:id/rating", (req, res) => {
+  Kulich.findById(req.params.id)
+  .exec()
+  .then((kulich) => {
+    if(kulich.ratings.includes(req.session) === true ) {
+      console.log(kulich)
+    } else {
+      kulich.ratings.push({
+      rating: req.body.rate,
+      userID: req.session.currentUser._id.toString()
+    })
+
+    }
+    let averageRating = 0
+    for(let i = 0; i < kulich.ratings.length; i++) {
+      averageRating += kulich.ratings[i].rating
+    }
+    averageRating = averageRating / kulich.ratings.length
+    kulich.averageRating = Math.floor(averageRating)
+    console.log(kulich)
+    kulich.save()
+    .then()
+  })
+})
 
 
 
