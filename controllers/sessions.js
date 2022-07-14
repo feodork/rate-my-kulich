@@ -40,6 +40,14 @@ sessionsRouter.post("/login", (req, res) => {
     })
 })
 
+sessionsRouter.get('/logout', (req, res) => {
+  res.render('sessions/logout.ejs', {
+    tabTitle: 'Log Out',
+    baseUrl: req.baseUrl,
+    currentUser: req.session.currentUser
+  })
+})
+
 // localhost:3000/logout
 sessionsRouter.delete("/logout", (req, res) => {
   req.session.destroy(() => {

@@ -49,19 +49,21 @@
 </table>
 
 <form>
-  <label for="name">Name</label>
-  <input type="text" id="name" />
-
+  <div class="form-floating mb-4">
+    <input class="form-control" placeholder="Durian" type="text" id="name" />
+    <label class="form-label" for="name">Name</label>
+  
+  </div>
   <label for="color">Color</label>
   <input type="text" id="color" />
 
-  <label for="image">Image</label>
-  <input id="image" type="file" />
+<div class="mb-3">
+  <label class="form-label" for="image">Image</label>
+  <input class="form-label" id="image" type="file" />
+</div>
 
-  <label for="isReadyToEat">Is Ready to Eat</label>
-  <input type="checkbox" id="isReadyToEat" />
+  <input class="btn btn-primary" type="submit" value="Create Fruit" />
 
-  <input type="submit" value="Create Fruit" />
 </form>
 </div>
 

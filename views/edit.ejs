@@ -1,9 +1,10 @@
 <%- include ("./partials/head.ejs") %>
+
 <div>
-  <h1>Update <%= theKulich.name %></h1>
+  <h1>Update <%= theKulich.username %></h1>
   <form action="<%= baseUrl %>/<%= theKulich.id %>?_method=PUT" method="post" enctype="multipart/form-data">
-    <label for="name">Name</label>
-    <input type="text" name="name" id="name" required value="<%= theKulich.name %>" />
+    <label for="username">Name</label>
+    <input type="text" name="username" id="username" required value="<%= theKulich.username %>" />
 
     <label for="image">Image</label>
     <input type="file" name="image" id="image">
@@ -11,4 +12,5 @@
     <input type="submit" value="Update Kulich" />
   </form>
 </div>
+
 <%- include ("./partials/footer.ejs") %>

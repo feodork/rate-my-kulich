@@ -87,7 +87,7 @@ router.put("/:id", (req, res) => {
 
 // EDIT route
 router.get("/:id/edit", upload.single("image"), (req, res) => {
-  req.body.imageURL = req.file.path
+
   Kulich.findById(req.params.id)
     .exec()
     .then((kulich) => {
@@ -95,10 +95,13 @@ router.get("/:id/edit", upload.single("image"), (req, res) => {
         currentUser: req.session.currentUser,
         baseUrl: req.baseUrl,
         theKulich: kulich,
-        tabTitle: "Update Kulikch: " + kulich.name
+        tabTitle: "Update Kulich: " + kulich.name
       })
     })
 }) 
+
+// RATING route
+
 
 
 module.exports = router

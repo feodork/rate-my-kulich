@@ -1,7 +1,7 @@
 {
   "name": "rate-my-kulich",
   "version": "1.0.0",
-  "description": "## Technologies Used This application was built using: - MongoDB - Mongoose - Nodejs - Javascript - JSON (do i list this?) - Express/Express session - EJS - Heroku - HTML - CSS - Method-override",
+  "description": "an app designed to rate kulichi",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

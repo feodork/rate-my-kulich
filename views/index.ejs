@@ -1,39 +1,38 @@
 <%- include("partials/head.ejs") %>
 
-<div class ="row row-cols-1 row-cols-md-2 row-cols-lg-3">
-<ul>
+<div class="card" style="width: 18rem;">
+  <ul>
   <% for (let kulich of allKulichi) { %>
-    <li>
+    <li class="list-group-item"><h3 class="card-title"><%= kulich.username %></h3>
+        <a href="<%= baseUrl %>/<%= kulich.id %>">
+        <img class="card-img-top" src="<%= kulich.image %>" /></a>
 
-      <a href="<%= baseUrl %>/<%= kulich.id %>">
-        <img src="<%= kulich.image %>" />
-        <div >
-          <h3><%= kulich.name %></h3>
-        </div>
-      </a>
-      <a
-  <div class="rate">
-    <input type="radio" id="star5" name="rate" value="5" />
-    <label for="star5" title="text">5 stars</label>
-    <input type="radio" id="star4" name="rate" value="4" />
-    <label for="star4" title="text">4 stars</label>
-    <input type="radio" id="star3" name="rate" value="3" />
-    <label for="star3" title="text">3 stars</label>
-    <input type="radio" id="star2" name="rate" value="2" />
-    <label for="star2" title="text">2 stars</label>
-    <input type="radio" id="star1" name="rate" value="1" />
-    <label for="star1" title="text">1 star</label>
-  </div>
+    <div class="card-text rate">
+      <input type="radio" id="star5" name="rate" value="5" />
+      <label for="star5" title="text">5 stars</label>
+      <input type="radio" id="star4" name="rate" value="4" />
+      <label for="star4" title="text">4 stars</label>
+      <input type="radio" id="star3" name="rate" value="3" />
+      <label for="star3" title="text">3 stars</label>
+      <input type="radio" id="star2" name="rate" value="2" />
+      <label for="star2" title="text">2 stars</label>
+      <input type="radio" id="star1" name="rate" value="1" />
+      <label for="star1" title="text">1 star</label>
+    </div>
 
-      <div>
-        <form action="<%= baseUrl %>/<%= kulich.id %>?_method=DELETE" method="post">
-          <input type="submit" value="Delete" />
-        </form>
-        <a href="<%= baseUrl %>/<%= kulich.id %>/edit">Edit</a>
-      </div>
+    <div>
+      <form action="<%= baseUrl %>/<%= kulich.id %>?_method=DELETE" method="post">
+        <input class="btn btn-light" type="submit" value="Delete" />
+      </form>
+
+      <form class="button" action="<%= baseUrl %>/<%= kulich.id %>/edit">
+        <input class="btn btn-light" type="submit" value="Edit" />
+      
+      </form>
+    </div>
     </li>
   <% } %>
-</ul>
+  </ul>
 </div>
 
 <%- include("./partials/footer.ejs") %>
