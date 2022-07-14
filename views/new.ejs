@@ -1,14 +1,18 @@
 <%- include ("./partials/head.ejs") %>
-<div>
+
   <h2>Add New Kulich</h2>
   <form action="<%= baseUrl %>" method="post" enctype="multipart/form-data">
-    <label for="username">Name</label>
-    <input type="text" name="username" required id="username" />
+    <div class="mb-3">
+      <label for="username">Name</label>
+      <input class="form-control" type="text" name="username" required id="username" />
+    </div>
 
-    <label for="image">Image</label>
-    <input type="file" name="image" id="image">
+    <div class="mb-3">
+      <label for="image">Image</label>
+      <input class="form-control" type="file" name="image" id="image">
+    </div>
 
-    <input type="submit" value="Post Kulich" />
+    <input class="btn btn-primary" type="submit" value="Post Kulich" />
   </form>
 </div>
 <%- include ("./partials/footer.ejs") %>

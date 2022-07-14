@@ -1,23 +1,24 @@
 <%- include("partials/head.ejs") %>
 
-  <ul>
+  <ul class="list-group list-group-flush">
   <% for (let kulich of allKulichi) { %>
-  <div class="card revised-card" style="width: 18rem;">
+  <div class="card revised-card" style="width: 100%">
 
     <li class="list-group-item">
       <div class="flex-row">
-      <img class="rounded-circle" src="<%= currentUser.profilePic %>">
+        <img class="rounded-circle" src="<%= currentUser.profilePic %>">
 
-      <h3 class="card-title"><%= kulich.username.username %></h3>
+        <h3 class="card-title"><%= kulich.username.username %></h3>
       </div>
       <a href="<%= baseUrl %>/<%= kulich.id %>">
       <img class="card-img-top" src="<%= kulich.image %>" /></a>
-      <p> <!-- Votes: <%= %><br> -->
+      <p class="av-rating"> <!-- Votes: <%= %><br> -->
       Average Rating: <%= kulich.averageRating %> </p><br>
 
     <div class="card-text">
-      <form action="<%= baseUrl %>/<%= kulich.id %>/rating?_method=PUT" method="post">
+      <form class="rating-form" action="<%= baseUrl %>/<%= kulich.id %>/rating?_method=PUT" method="post">
         <div class="rate">
+         <!--  add class for each star -->
           <input type="radio" id="star5" name="rate" value="5" />
           <label for="star5" title="text">5 stars</label>
           <input type="radio" id="star4" name="rate" value="4" />
@@ -31,16 +32,15 @@
         </div>
         <input type="submit" name="submit" value="rate">
       </form>
-    </div>
+    </div><br>
     
-    <div>
-      <form action="<%= baseUrl %>/<%= kulich.id %>?_method=DELETE" method="post">
+    <div class="align-buttons">
+      <form class="button" action="<%= baseUrl %>/<%= kulich.id %>?_method=DELETE" method="post">
         <input class="btn btn-light" type="submit" value="Delete" />
       </form>
 
       <form class="button" action="<%= baseUrl %>/<%= kulich.id %>/edit">
         <input class="btn btn-light" type="submit" value="Edit" />
-      
       </form>
     </div>
   </div>

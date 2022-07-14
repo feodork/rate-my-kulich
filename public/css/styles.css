@@ -1,14 +1,27 @@
+body {
+	max-width: 1200px;
+}
+
+.navbar {
+	display: flex;
+	justify-content: space-between;
+}
+
+.navbar-nav {
+	display: flex;
+	justify-content: flex-end; // why???!
+}
+
 .center-data {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-content: center;
-	margin-left: 100px;
 }
 
-.single-image {
+/*.single-image {
 	max-width: 360px;
-}
+}*/
 
 .rounded-circle {
 border-radius:50%;
@@ -34,6 +47,17 @@ ul {
 	margin-left: 100px;
 }
 
+.rate {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.align-buttons {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+}
 
 .rate {
     float: left;
@@ -78,7 +102,12 @@ ul {
     box-sizing: border-box;
 }
 
-.footer {
+.add-new-kulich {
+	display: grid;
+	grid-template-columns: 1;
+}
+
+footer {
     margin-top: auto;
     bottom: 0;
     width: 100%;
@@ -86,6 +115,12 @@ ul {
     line-height: 60px;
     background-color: #f5f5f5;
 }
+
+footer .text-muted {
+	display: flex;
+	justify-content: center;
+}
+
 
 .revised-card {
 	margin: 0 auto;

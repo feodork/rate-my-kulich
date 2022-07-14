@@ -92,6 +92,7 @@ router.get("/:id/edit", upload.single("image"), (req, res) => {
   Kulich.findById(req.params.id)
     .exec()
     .then((kulich) => {
+      console.log(kulich)
       res.render("edit.ejs", {
         currentUser: req.session.currentUser,
         baseUrl: req.baseUrl,
@@ -103,6 +104,8 @@ router.get("/:id/edit", upload.single("image"), (req, res) => {
 
 // RATING route
 router.put("/:id/rating", (req, res) => {
+  console.log(req)
+  return
   Kulich.findById(req.params.id)
   .exec()
   .then((kulich) => {
