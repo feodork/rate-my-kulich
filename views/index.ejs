@@ -2,19 +2,22 @@
 
   <ul class="list-group list-group-flush">
   <% for (let kulich of allKulichi) { %>
-  <div class="card revised-card" style="width: 100%">
+  <div class="card revised-card" style="width: 90%">
 
     <li class="list-group-item">
-      <div class="flex-row">
-        <img class="rounded-circle" src="<%= currentUser.profilePic %>">
-
+      <div class="containter">
         <h3 class="card-title"><%= kulich.username.username %></h3>
       </div>
       <a href="<%= baseUrl %>/<%= kulich.id %>">
+      <div class="container">
       <img class="card-img-top" src="<%= kulich.image %>" /></a>
+    </div>
+    <div class="container">
       <p class="av-rating"> <!-- Votes: <%= %><br> -->
-      Average Rating: <%= kulich.averageRating %> </p><br>
+      Average Rating: <%= kulich.averageRating %> </p>
+    </div>
 
+    <div class="container">
     <div class="card-text">
       <form class="rating-form" action="<%= baseUrl %>/<%= kulich.id %>/rating?_method=PUT" method="post">
         <div class="rate">
@@ -32,9 +35,10 @@
         </div>
         <input type="submit" name="submit" value="rate">
       </form>
-    </div><br>
+    </div>
+  </div>
     
-    <div class="align-buttons">
+    <div class="container"> 
       <form class="button" action="<%= baseUrl %>/<%= kulich.id %>?_method=DELETE" method="post">
         <input class="btn btn-light" type="submit" value="Delete" />
       </form>
@@ -42,6 +46,7 @@
       <form class="button" action="<%= baseUrl %>/<%= kulich.id %>/edit">
         <input class="btn btn-light" type="submit" value="Edit" />
       </form>
+  
     </div>
   </div>
     </li>

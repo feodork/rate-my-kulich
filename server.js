@@ -13,6 +13,8 @@ const mongoDBSession = require("connect-mongodb-session")
 const usersController = require("./controllers/users")
 const kulichiController = require("./controllers/kulichi")
 const sessionsController = require("./controllers/sessions")
+const Kulich = require("./models/kulichi")
+
 
 // configuration
 const app = express()
@@ -42,8 +44,20 @@ app.use(methodOverride("_method"))
 app.use('/', sessionsController)
 app.use('/users', usersController)
 app.use("/kulichi", kulichiController)
-app.use("/", (req, res) => {
-  res.redirect("/kulichi")
+// INDEX route
+app.get("/", (req, res) => {
+  Kulich.find()
+    .exec()
+    .then((kulichi) => {
+      console.log(kulichi)
+      res.render("index.ejs", {
+        // ternary expression
+        currentUser: req.session?req.session.currentUser:null,
+        allKulichi: kulichi,
+        baseUrl: req.baseUrl,
+        tabTitle: "Home"
+      })
+    })
 })
 
 mongoose.connect(dbURL, () => {

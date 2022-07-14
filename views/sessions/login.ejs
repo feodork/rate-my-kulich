@@ -1,7 +1,8 @@
 <%- include("../partials/head.ejs") %>
 
-<div>
+<div class="container">
   <h2>Log in to post your kulich and rate.</h2>
+</div>
 
   <div>
     <% if (messages.success) { %>
@@ -22,22 +23,25 @@
   </div>
 
   <form action="<%= baseUrl %>/login" method="post">
-    <div class="mb3">
-      <label for="username">Name</label>
-      <input class="form-control" type="text" name="username" id="username" required />
+
+    <div class="container">
+      <div class="mb3">
+        <label for="username">Name</label>
+        <input class="form-control" type="text" name="username" id="username" required />
+      </div>
     </div>
 
-    <div class="mb3">
-      <label for="password">Password</label>
-      <input class="form-control" type="password" name="password" id="password" required />
+    <div class="container">
+      <div class="mb3">
+        <label for="password">Password</label>
+        <input class="form-control" type="password" name="password" id="password" required />
+      </div>
     </div>
 
-    <input class="btn btn-primary" type="submit" value="Log in" />
+    <div class="container">
+      <input class="btn btn-primary" type="submit" value="Log in" />
+      <p>Don't have an account?<a href="/users/signup">Sign up</a></p>
+    </div>
 
-    <p>
-      Don't have an account?
-      <a href="/users/signup">Sign up</a>
-    </p>
   </form>
-</div>
 <%- include("../partials/footer.ejs") %>

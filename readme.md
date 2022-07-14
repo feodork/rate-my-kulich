@@ -17,8 +17,12 @@ I used a [wireframe](https://balsamiq.cloud/solja5p/pgjz2tz) to map out each pag
 The app is built around two main databases: Users & Kulichi.
 Users are able to: post, edit, delete & rate kulichi. 
 
+## Issues
+Implementation of AJAX
+
+
 ## Future Iterations
-- Able to update profile image 
+- Implementation of profile image 
 - Update to styling
 
 

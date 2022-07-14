@@ -1,14 +1,17 @@
 <%- include ("./partials/head.ejs") %>
-<div class="center-data">
+<div class="container">
 <div class="flex-row">
   <img class="rounded-circle" src="<%= currentUser.profilePic %>">
   <div>
     <h2><%= theKulich.username.username %></h2>
   </div>
   </div>
+
+<div class="container">
   <img class="single-image" src="<%= theKulich.image %>" />
+</div>
 
-
+<div class="container">
     <div class="flex-row">
       <form action="<%= baseUrl %>/<%= theKulich.id %>?_method=DELETE" method="post">
         <input class="btn btn-light" type="submit" value="Delete" />
@@ -16,7 +19,6 @@
 
       <form class="button" action="<%= baseUrl %>/<%= theKulich.id %>/edit">
         <input class="btn btn-light" type="submit" value="Edit" />
-      
       </form>
     </div>
 </div>

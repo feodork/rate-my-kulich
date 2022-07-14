@@ -1,18 +1,29 @@
 <%- include ("./partials/head.ejs") %>
 
-  <h2>Add New Kulich</h2>
+  <div class="container">
+    <h2>Add New Kulich</h2>
+  </div>
+
   <form action="<%= baseUrl %>" method="post" enctype="multipart/form-data">
-    <div class="mb-3">
-      <label for="username">Name</label>
-      <input class="form-control" type="text" name="username" required id="username" />
+
+    <div class="container">
+      <div class="mb-3">
+        <label for="username">Name</label>
+        <input class="form-control" type="text" name="username" required id="username" />
+      </div>
     </div>
 
-    <div class="mb-3">
-      <label for="image">Image</label>
-      <input class="form-control" type="file" name="image" id="image">
+    <div class="container">
+      <div class="mb-3">
+        <label for="image">Image</label>
+        <input class="form-control" type="file" name="image" id="image">
+      </div>
     </div>
 
-    <input class="btn btn-primary" type="submit" value="Post Kulich" />
+    <div class="container">
+      <input class="btn btn-primary" type="submit" value="Post Kulich" />
+    </div>
+
   </form>
-</div>
+
 <%- include ("./partials/footer.ejs") %>
