@@ -29,7 +29,7 @@ sessionsRouter.post("/login", (req, res) => {
       if (!passwordIsCorrect) {
         // user found but password is wrong
         console.log("password is wrong")
-        req.flash("error", "Username or password is incorrect")
+        req.flash("Username or password is incorrect")
         res.redirect(req.baseUrl + "/login")
       } else {
         // user found and password is correct

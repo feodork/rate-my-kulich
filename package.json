@@ -1,6 +1,9 @@
 {
   "name": "rate-my-kulich",
   "version": "1.0.0",
+  "engines": {
+  "node": "18.4.0"
+  },
   "description": "an app designed to rate kulichi",
   "main": "server.js",
   "scripts": {
