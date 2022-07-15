@@ -1,3 +1,4 @@
+
 .navbar {
 	display: flex;
 	justify-content: space-between;
@@ -43,7 +44,7 @@ ul {
 	margin-left: 100px;
 }
 
-.rate {
+/*.rate {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
@@ -53,7 +54,7 @@ ul {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-evenly;
-}
+}*/
 
 .rate {
     float: left;

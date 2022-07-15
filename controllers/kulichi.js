@@ -24,7 +24,8 @@ router.get("/", (req, res) => {
         currentUser: req.session.currentUser,
         allKulichi: kulichi,
         baseUrl: req.baseUrl,
-        tabTitle: "Home"
+        tabTitle: "Home",
+        controllerPrefix: ""
       })
     })
 })
@@ -103,30 +104,36 @@ router.get("/:id/edit", upload.single("image"), (req, res) => {
 }) 
 
 // RATING route
-router.put("/:id/rating", (req, res) => {
-  console.log(req)
-  return
+router.get("/:id/rating", (req, res) => {
+  console.log("rating received", req.query)
   Kulich.findById(req.params.id)
   .exec()
   .then((kulich) => {
-    if(kulich.ratings.includes(req.session) === true ) {
-      console.log(kulich)
-    } else {
-      kulich.ratings.push({
-      rating: req.body.rate,
-      userID: req.session.currentUser._id.toString()
+      console.log(kulich.userRatings)
+      // if it already has a value, leave as is, or if not set it to a new map object
+      kulich.userRatings = kulich.userRatings || new Map()
+      kulich.userRatings.set(
+        req.session.currentUser._id, 
+        parseInt(req.query.rating)
+        )
+    let sum = 0
+    kulich.userRatings.forEach(rating => {
+      sum += rating
     })
-
-    }
-    let averageRating = 0
-    for(let i = 0; i < kulich.ratings.length; i++) {
-      averageRating += kulich.ratings[i].rating
-    }
-    averageRating = averageRating / kulich.ratings.length
+    let averageRating = sum / kulich.userRatings.size
     kulich.averageRating = Math.floor(averageRating)
     console.log(kulich)
     kulich.save()
-    .then()
+    .then(() => {
+        // sending back rendered single kulich
+        res.render("partials/kulich.ejs", {
+          currentUser: req.session.currentUser,
+          kulich: kulich,
+          baseUrl: req.baseUrl,
+          controllerPrefix: ""
+      })
+
+    })
   })
 })
 

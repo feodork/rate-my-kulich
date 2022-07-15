@@ -1,55 +1,11 @@
 <%- include("partials/head.ejs") %>
-
+  <div class="container">
   <ul class="list-group list-group-flush">
   <% for (let kulich of allKulichi) { %>
-  <div class="card revised-card">
 
-    <li class="list-group-item">
-      <div class="containter">
-        <h3 class="card-title"><%= kulich.username.username %></h3>
-      </div>
-      <a href="<%= baseUrl %>/<%= kulich.id %>">
-      <div class="container">
-      <img class="card-img-top" src="<%= kulich.image %>" /></a>
-    </div>
-    <div class="container">
-      <p class="av-rating"> <!-- Votes: <%= %><br> -->
-      Average Rating: <%= kulich.averageRating %> </p>
-    </div>
+    <%- include("partials/kulich.ejs", {kulich, baseUrl, controllerPrefix, currentUser}) %>
 
-    <div class="container">
-    <div class="card-text">
-      <form class="rating-form" action="<%= baseUrl %>/<%= kulich.id %>/rating?_method=PUT" method="post">
-        <div class="rate">
-         <!--  add class for each star -->
-          <input type="radio" id="star5" name="rate" value="5" />
-          <label for="star5" title="text">5 stars</label>
-          <input type="radio" id="star4" name="rate" value="4" />
-          <label for="star4" title="text">4 stars</label>
-          <input type="radio" id="star3" name="rate" value="3" />
-          <label for="star3" title="text">3 stars</label>
-          <input type="radio" id="star2" name="rate" value="2" />
-          <label for="star2" title="text">2 stars</label>
-          <input type="radio" id="star1" name="rate" value="1" />
-          <label for="star1" title="text">1 star</label>
-        </div>
-        <input type="submit" name="submit" value="rate">
-      </form>
-    </div>
-  </div>
-    
-    <div class="container"> 
-      <form class="button" action="<%= baseUrl %>/<%= kulich.id %>?_method=DELETE" method="post">
-        <input class="btn btn-light" type="submit" value="Delete" />
-      </form>
 
-      <form class="button" action="<%= baseUrl %>/<%= kulich.id %>/edit">
-        <input class="btn btn-light" type="submit" value="Edit" />
-      </form>
-  
-    </div>
-  </div>
-    </li>
   <% } %>
   </ul>
 </div>

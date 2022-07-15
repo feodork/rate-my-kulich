@@ -7,10 +7,7 @@ const kulichSchema = new Schema({
     ref: "User", 
     required: true }, // can i have this auto populate from log in details?
   image: { type: String, required: true },
-  ratings: [{
-    rating: Number,
-    userID: String
-  }],
+  userRatings: { type: Map, of: Number },
   averageRating: Number
 },
 {timestamps: true}

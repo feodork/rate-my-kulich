@@ -1,8 +1,10 @@
 <%- include("../partials/head.ejs") %>
 
-<div>
+<div class="container">
   <h2>Sign up to post your kulich and rate.</h2>
+</div>
 
+<div class="container">
   <div class="flash-messages">
     <% if (messages.success) { %>
       <% for (let msg of messages.success) { %>
@@ -20,33 +22,45 @@
       <% } %>
     <% } %>
   </div>
+</div>
 
   <form action="<%= baseUrl %>" method="post" enctype="multipart/form-data">
-    <div class="mb-3">
-      <label for="username">Name</label>
-      <input class="form-control" type="text" name="username" id="username" required />
+
+    <div class="container">
+      <div class="mb-3">
+        <label for="username">Name</label>
+        <input class="form-control" type="text" name="username" id="username" required />
+      </div>
     </div>
 
-    <div class="mb-3">
-      <label for="email">Email</label>
-      <input class="form-control" type="text" name="email" id="email" required />
+    <div class="container">
+      <div class="mb-3">
+        <label for="email">Email</label>
+        <input class="form-control" type="text" name="email" id="email" required />
+      </div>
     </div>
 
-    <div class="mb-3">
-      <label for="password">Password</label>
-      <input class="form-control" type="password" name="password" id="password" required />
+    <div class="container">
+      <div class="mb-3">
+        <label for="password">Password</label>
+        <input class="form-control" type="password" name="password" id="password" required />
+      </div>
     </div>
       
-<!--     <div class="mb-3">
-      <label for="profilePic">Profile pic</label>
-      <input class="form-control" type="file" name="profilePic" id="profilePic">
-    </div> -->
-
-    <input class="btn btn-primary" type="submit" value="Sign up" />
-      
-    <div id="accHelp" class="form-text">Already have an account?<a href="/login">Log in</a></div>
+<!--     
+    <div class="container">
+      <div class="mb-3">
+        <label for="profilePic">Profile pic</label>
+        <input class="form-control" type="file" name="profilePic" id="profilePic">
+      </div> 
+    </div>
+  -->
+    <div class="container">
+      <input class="btn btn-primary" type="submit" value="Sign up" /> 
+      <div id="accHelp" class="form-text">Already have an account?<a href="/login">Log in</a></div>
+    </div>
       
 
   </form>
-</div>
+
 <%- include("../partials/footer.ejs") %>

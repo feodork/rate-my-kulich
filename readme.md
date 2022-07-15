@@ -17,11 +17,15 @@ I used a [wireframe](https://balsamiq.cloud/solja5p/pgjz2tz) to map out each pag
 The app is built around two main databases: Users & Kulichi.
 Users are able to: post, edit, delete & rate kulichi. 
 
+## Problem Solving
+After a user rates a kulich, the page reloads at the top of the page. To solve this I used AJAX to rerender the page at the same point.
+
 ## Issues
-Implementation of AJAX
+- Error messages broken
 
 
 ## Future Iterations
+- Update homepage (currently rendering Index page)
 - Implementation of profile image 
 - Update to styling
 

@@ -1,11 +1,24 @@
+// getting all forms
 const ratings = document.querySelectorAll(".rating-form")
 
-ratings.forEach((form) => {
+// iterating
+ratings.forEach((form, i) => {
+	const ratingURL = form.getAttribute("action")
+	// get each star (input elements) from current form
 	form.querySelectorAll("input").forEach((star) => {
 		star.addEventListener("click", () => {
-			const formdata = new FormData(star.value)
-			const params = new URLSearchParams(formdata)
-			fetch(, { method: "put", body: formdata })
+			// accessing the value of star
+			const params = new URLSearchParams({ rating: star.value })
+			fetch(ratingURL + "?" + params)
+			.then((response) => {
+				return response.text()
+			})
+			// have single kulich
+			.then((html) => {
+				const card = document.querySelectorAll(".card")[i]
+				// the nearest ancestor (going upwards rather than downwards)
+				card.outerHTML = "html"
+			})
 		})
 	})
 })

@@ -55,7 +55,8 @@ app.get("/", (req, res) => {
         currentUser: req.session?req.session.currentUser:null,
         allKulichi: kulichi,
         baseUrl: req.baseUrl,
-        tabTitle: "Home"
+        tabTitle: "Home",
+        controllerPrefix: "/kulichi"
       })
     })
 })
