@@ -1,44 +1,29 @@
 // getting all forms
 const ratings = document.querySelectorAll(".rating-form")
 
-// iterating
-ratings.forEach((form) => {
+const addClickListeners = (form) => {
+	// grabs form action
 	const ratingURL = form.getAttribute("action")
 	// get each star (input elements) from current form
 	form.querySelectorAll("input").forEach((star) => {
 		star.addEventListener("click", (event) => {
+			// get the element that we clicked on and then finding the nearest ancestor (going upwards rather than downwards)
 			const card = event.currentTarget.closest(".card")
-			// accessing the value of star
-			const params = new URLSearchParams({ rating: star.value })
-			fetch(ratingURL + "?" + params)
-			.then((response) => {
-				return response.text()
-			})
-			// have single kulich
-			.then((html) => {
-				// the nearest ancestor (going upwards rather than downwards)
-				card.outerHTML = "html"
-			})
+			// accessing the value of star & sending the rating & getting back updated HTML
+			fetch(ratingURL + "?rating=" + star.value)
+				.then((response) => {
+					return response.text()
+				})
+				.then((html) => {
+					// taking refreshed HTML and replacing it on the page
+					card.outerHTML = html
+					addClickListeners(card.querySelector(".rating-form"))
+				}) 
 		})
 	})
+}
+
+// iterating
+ratings.forEach((form) => {
+	addClickListeners(form)
 })
-
-
-
-
-
-
-
-// if(ratings.length > 0) {
-// 	for(let rating of ratings) {
-// 		//listen for clicks on star. if clicked, send value. send request to input elements
-// 		rating.addEventListener("submit", (event) => {
-// 			event.preventDefault()
-// 			const URL = rating.getAttribute("action")
-			// const formdata = new FormData(rating)
-			// const params = new URLSearchParams(formdata)
-			// fetch(URL, { method: "put", body: formdata })
-// 			console.log(params)
-// 		})
-// 	}
-// }
