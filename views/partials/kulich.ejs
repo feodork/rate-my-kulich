@@ -1,5 +1,5 @@
   <div class="card">
-    <li class="list-group-item">
+    <div class="list-group-item">
       <div class="container">
         <h3 class="card-title"><%= kulich.username.username %> </h3>
       </div>
@@ -22,7 +22,7 @@
             <div class="rate"><% for (let i = 5; i >= 1; i--) { %>
               <!-- if there already is a user rating -->
               <!-- geting existing rating, checking for currentUser and checking if equivalent to the star rating-->
-              <input <%= kulich.userRatings && kulich.userRatings.get(currentUser._id) === i ? "checked" : "" %> type="radio" id="star<%= kulich.id %><%= i %>" name="rate" value="
+              <input <%= currentUser && kulich.userRatings && kulich.userRatings.get(currentUser._id) === i ? "checked" : "" %> type="radio" id="star<%= kulich.id %><%= i %>" name="rate" value="
                 
                 
                 <%= i %>" />
@@ -32,12 +32,14 @@
         </div>
       </div>
       <div class="container">
+        <% if(currentUser) { %>
         <form class="button" action="<%= baseUrl%><%= controllerPrefix %>/<%= kulich.id %>?_method=DELETE" method="post">
           <input class="btn btn-light" type="submit" value="Delete" />
         </form>
         <form class="button" action="<%= baseUrl%><%= controllerPrefix %>/<%= kulich.id %>/edit">
           <input class="btn btn-light" type="submit" value="Edit" />
         </form>
+        <% } %>
       </div>
-    </li>
+    </div>
   </div>

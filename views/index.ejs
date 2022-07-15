@@ -2,9 +2,9 @@
   <div class="container">
   <ul class="list-group list-group-flush">
   <% for (let kulich of allKulichi) { %>
-
-    <%- include("partials/kulich.ejs", {kulich, baseUrl, controllerPrefix, currentUser}) %>
-
+    <li>
+      <%- include("partials/kulich.ejs", {kulich, baseUrl, controllerPrefix, currentUser}) %>
+    </li>
 
   <% } %>
   </ul>
