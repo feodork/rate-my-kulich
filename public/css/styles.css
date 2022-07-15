@@ -111,11 +111,7 @@ footer {
     height: 60px;
     line-height: 60px;
     background-color: #f5f5f5;
-}
-
-footer .text-muted {
-	display: flex;
-	justify-content: center;
+    align-content: center;
 }
 
 
